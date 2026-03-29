@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ApexNova Engineering (SMC-Private) Limited</title>
+  <meta name="description" content="ApexNova Engineering (SMC-Private) Limited - Engineering, Technology, AI, Consultancy, Manufacturing Support, Trading and R&D." />
+  <style>
+    :root{
+      --bg:#07111f;
+      --bg2:#0b1730;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.08);
+      --line:rgba(255,255,255,.12);
+      --text:#e8eefc;
+      --muted:#aab7d1;
+      --blue:#37a0ff;
+      --blue2:#1c63ff;
+      --orange:#ff8a2a;
+      --emerald:#17b26a;
+      --shadow:0 20px 50px rgba(0,0,0,.28);
+      --radius:24px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255,138,42,.18), transparent 22%),
+        radial-gradient(circle at 90% 10%, rgba(55,160,255,.18), transparent 24%),
+        radial-gradient(circle at 20% 80%, rgba(28,99,255,.12), transparent 25%),
+        linear-gradient(180deg, var(--bg2), var(--bg));
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(var(--max), calc(100% - 32px)); margin:0 auto}
+    .header{
+      position:sticky; top:0; z-index:1000;
+      background:rgba(7,17,31,.78);
+      backdrop-filter: blur(16px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 0;
+    }
+    .brand{display:flex; align-items:center; gap:14px}
+    .brand img{height:52px; width:auto; object-fit:contain}
+    .brand h1{margin:0; font-size:28px; letter-spacing:.18em}
+    .brand p{margin:2px 0 0; font-size:11px; color:var(--muted); letter-spacing:.26em; text-transform:uppercase}
+    .navlinks{display:flex; gap:26px; color:#d3dcf0; font-size:14px}
+    .navlinks a:hover{color:#fff}
+    .hero{
+      padding:72px 0 54px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:38px;
+      align-items:center;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 14px; border-radius:999px;
+      background:rgba(255,138,42,.12);
+      border:1px solid rgba(255,138,42,.28);
+      color:#ffd6b1; font-size:14px; margin-bottom:16px;
+    }
+    .hero h2{
+      font-size: clamp(38px, 5vw, 64px);
+      line-height:1.05; margin:0 0 18px;
+      letter-spacing:-.03em;
+    }
+    .hero p.lead{
+      color:var(--muted);
+      font-size:18px;
+      max-width:760px;
+      margin:0 0 28px;
+    }
+    .cta{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:28px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:14px 22px; border-radius:18px; font-weight:700; font-size:15px;
+      transition:.2s ease; border:1px solid transparent;
+      box-shadow:var(--shadow);
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:#fff; color:#07111f}
+    .btn-secondary{background:transparent; border-color:var(--line); color:#fff}
+    .btn-whatsapp{background:var(--emerald); color:#fff}
+    .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; max-width:620px}
+    .stat{
+      padding:18px 18px 16px; border-radius:22px; background:var(--panel);
+      border:1px solid var(--line); box-shadow:var(--shadow);
+    }
+    .stat strong{display:block; font-size:28px}
+    .stat span{color:var(--muted); font-size:14px}
+    .hero-card{
+      position:relative;
+      padding:28px;
+      border-radius:32px;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-20px;
+      background:radial-gradient(circle at 25% 25%, rgba(55,160,255,.18), transparent 40%),
+                 radial-gradient(circle at 75% 75%, rgba(255,138,42,.18), transparent 36%);
+      filter:blur(30px); z-index:-1;
+    }
+    .hero-logo{
+      display:flex; align-items:center; justify-content:center;
+      min-height:360px;
+      border-radius:26px;
+      background:rgba(4,10,22,.52);
+      border:1px solid var(--line);
+      padding:22px;
+    }
+    .hero-logo img{max-width:100%; max-height:300px; object-fit:contain}
+    .grid-2{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:28px;
+    }
+    section{padding:34px 0}
+    .section-head small{
+      text-transform:uppercase; letter-spacing:.28em; color:#a8d3ff; font-weight:700;
+    }
+    .section-head h3{
+      margin:8px 0 12px; font-size: clamp(28px, 4vw, 44px); line-height:1.15;
+    }
+    .section-head p{margin:0; color:var(--muted); max-width:850px}
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .card.pad{padding:28px}
+    .services, .projects{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:24px;
+    }
+    .projects{grid-template-columns:repeat(3,1fr)}
+    .service, .project{
+      padding:24px; transition:.2s ease;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      border:1px solid var(--line); border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+    .service:hover, .project:hover{transform:translateY(-4px); border-color:rgba(255,138,42,.3)}
+    .icon{
+      width:52px; height:52px; border-radius:16px;
+      display:grid; place-items:center;
+      background:rgba(255,138,42,.12); border:1px solid rgba(255,138,42,.2);
+      font-size:24px; margin-bottom:16px;
+    }
+    .service h4, .project h4{margin:0 0 10px; font-size:21px}
+    .service p, .project p{margin:0; color:var(--muted)}
+    .highlight-list{
+      display:grid; gap:14px; margin-top:20px;
+    }
+    .highlight{
+      padding:16px 18px; border-radius:18px; background:rgba(4,10,22,.45);
+      border:1px solid var(--line); color:#d8e2f6;
+    }
+    .profile-points{display:grid; gap:14px; margin-top:18px}
+    .profile-points div{
+      padding:16px 18px; border-radius:18px; background:rgba(4,10,22,.5);
+      border:1px solid var(--line); color:#dbe5f8;
+    }
+    .contact-wrap{
+      display:grid; grid-template-columns:1.05fr .95fr; gap:24px; margin-top:24px;
+    }
+    .details-list{display:grid; gap:14px; margin-top:16px}
+    .details-list div{color:#dfe8f8}
+    .details-list span{color:#fff; font-weight:700}
+    .form-grid{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px;
+    }
+    input, textarea{
+      width:100%;
+      background:rgba(4,10,22,.62);
+      border:1px solid var(--line);
+      color:#fff;
+      border-radius:18px;
+      padding:14px 16px;
+      font:inherit;
+      outline:none;
+    }
+    textarea{min-height:140px; resize:vertical}
+    input::placeholder, textarea::placeholder{color:#8092b3}
+    .full{grid-column:1/-1}
+    footer{
+      border-top:1px solid var(--line);
+      margin-top:34px; padding:28px 0 44px; text-align:center; color:var(--muted)
+    }
+    .footer-logo{height:58px; width:auto; margin-bottom:10px; opacity:.95}
+    .floating-wa{
+      position:fixed; right:20px; bottom:20px; z-index:1200;
+      display:inline-flex; align-items:center; gap:10px; padding:14px 18px;
+      border-radius:999px; background:var(--emerald); color:#fff; font-weight:700;
+      border:1px solid rgba(255,255,255,.18); box-shadow:var(--shadow);
+    }
+    .muted{color:var(--muted)}
+    .pdfbox{
+      margin-top:18px; padding:16px 18px; border-radius:18px;
+      border:1px dashed var(--line); color:var(--muted);
+      background:rgba(4,10,22,.32)
+    }
+    @media (max-width: 1024px){
+      .hero-grid, .grid-2, .contact-wrap{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .projects{grid-template-columns:1fr}
+    }
+    @media (max-width: 700px){
+      .nav{gap:12px; align-items:flex-start}
+      .navlinks{display:none}
+      .brand h1{font-size:22px}
+      .hero{padding-top:48px}
+      .stats, .services, .form-grid{grid-template-columns:1fr}
+      .btn{width:100%}
+      .hero-logo{min-height:260px}
+      .floating-wa{left:14px; right:14px; justify-content:center}
+    }
+  </style>
+</head>
+<body>
+  <a class="floating-wa" href="https://wa.me/923025967154" target="_blank" rel="noreferrer">💬 WhatsApp Us</a>
+
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.png" alt="ApexNova Logo">
+        <div>
+          <h1>APEXNOVA</h1>
+          <p>Engineering • Technology • Innovation</p>
+        </div>
+      </div>
+      <nav class="navlinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#profile">Profile</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="pill">✦ ApexNova Engineering (SMC-Private) Limited</div>
+          <h2>Engineering excellence powered by innovation, technology, and practical execution.</h2>
+          <p class="lead">
+            ApexNova Engineering (SMC-Private) Limited delivers forward-looking solutions across engineering, IT, AI, consultancy, manufacturing support, trading, and research-driven initiatives for modern organizations.
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#services">Explore Services</a>
+            <a class="btn btn-secondary" href="#contact">Contact Us</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/923025967154" target="_blank" rel="noreferrer">WhatsApp Now</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>24/7</strong><span>WhatsApp availability</span></div>
+            <div class="stat"><strong>SMC</strong><span>Private limited structure</span></div>
+            <div class="stat"><strong>AI</strong><span>Future-ready capability</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-logo">
+            <img src="logo.png" alt="ApexNova Logo">
+          </div>
+          <div class="highlight-list">
+            <div class="highlight">Engineering excellence with a modern outlook</div>
+            <div class="highlight">Innovation-led problem solving</div>
+            <div class="highlight">Reliable technical and strategic support</div>
+            <div class="highlight">Built for industrial growth, AI, and future technologies</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container grid-2">
+        <div>
+          <div class="section-head">
+            <small>About ApexNova</small>
+            <h3>A modern platform for engineering, industrial support, and technical growth</h3>
+          </div>
+          <p class="muted">
+            The name <strong style="color:#fff">ApexNova</strong> reflects two defining ideas: <strong style="color:#fff">Apex</strong> for excellence, leadership, and high standards; and <strong style="color:#fff">Nova</strong> for innovation, transformation, and new possibilities.
+          </p>
+          <p class="muted">
+            Whether supporting industrial projects, consultancy assignments, manufacturing initiatives, trading opportunities, research and development efforts, or technology-led ventures, ApexNova is positioned to create value through discipline, capability, and practical execution.
+          </p>
+        </div>
+        <div class="card pad">
+          <div class="section-head">
+            <small style="color:#ffd7b7">Vision</small>
+            <h3 style="font-size:28px; margin-bottom:8px">Trusted engineering and technology leadership</h3>
+          </div>
+          <p class="muted">To become a trusted name in engineering, technology, and innovation by delivering solutions that are practical, reliable, and aligned with future industry needs.</p>
+          <div style="height:10px"></div>
+          <div class="section-head">
+            <small style="color:#ffd7b7">Mission</small>
+          </div>
+          <p class="muted">To provide high-quality engineering, technology, IT, AI, consultancy, manufacturing support, trading, and research-driven solutions that help clients improve performance, achieve sustainable growth, and adapt to modern challenges.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <small>Our Services</small>
+          <h3>What ApexNova can do</h3>
+          <p>Professional solutions designed for industry, business growth, technical development, and future-ready operations.</p>
+        </div>
+        <div class="services">
+          <div class="service">
+            <div class="icon">⚙️</div>
+            <h4>Engineering Solutions</h4>
+            <p>Applied engineering support for design, development, technical problem-solving, technical documentation, and project execution across industrial and technology-focused domains.</p>
+          </div>
+          <div class="service">
+            <div class="icon">💻</div>
+            <h4>Technology, IT & AI</h4>
+            <p>Innovation-driven solutions in emerging technologies, IT-enabled systems, AI-supported applications, digital workflows, and smart business tools.</p>
+          </div>
+          <div class="service">
+            <div class="icon">🛡️</div>
+            <h4>Consultancy & Advisory</h4>
+            <p>Strategic consultancy for organizations seeking reliable technical guidance, operational improvement, feasibility support, and growth-oriented decision making.</p>
+          </div>
+          <div class="service">
+            <div class="icon">🏭</div>
+            <h4>Manufacturing, Trading & R&amp;D</h4>
+            <p>Support for manufacturing initiatives, industrial sourcing, trading activities, product development, indigenization, and research-oriented engineering implementation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <small style="color:#ffd7b7">Projects & Capabilities</small>
+          <h3>How ApexNova can support real assignments</h3>
+          <p>ApexNova is positioned to undertake engineering, technical, digital, and advisory assignments with a practical, solution-oriented approach.</p>
+        </div>
+        <div class="projects">
+          <div class="project">
+            <h4>Industrial Engineering Support</h4>
+            <p>Technical support for industrial systems, engineering problem-solving, process improvement, and dependable execution support.</p>
+          </div>
+          <div class="project">
+            <h4>Technology & Digital Solutions</h4>
+            <p>Development of IT-enabled tools, AI-assisted workflows, and digital solutions for modern business and engineering needs.</p>
+          </div>
+          <div class="project">
+            <h4>Consultancy & Advisory Assignments</h4>
+            <p>Professional advisory support for feasibility studies, strategic planning, technical documentation, and organizational improvement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="profile">
+      <div class="container grid-2">
+        <div class="card pad">
+          <div class="section-head">
+            <small>Company Profile</small>
+            <h3>A compact company profile built into the website</h3>
+          </div>
+          <p class="muted">
+            ApexNova Engineering (SMC-Private) Limited is established to deliver dependable engineering, technology, advisory, and innovation-led services. The company identity combines excellence, forward thinking, and practical capability.
+          </p>
+          <div class="profile-points">
+            <div>Engineering, IT, AI, consultancy, manufacturing support, trading, and research-driven services</div>
+            <div>Professional approach focused on quality, reliability, and practical outcomes</div>
+            <div>Suitable for industrial clients, institutions, private businesses, and collaborative ventures</div>
+            <div>Built to grow into a full-spectrum engineering and technology enterprise</div>
+          </div>
+        </div>
+        <div class="card pad" style="background:linear-gradient(180deg, rgba(255,138,42,.10), rgba(255,255,255,.05)); border-color:rgba(255,138,42,.18)">
+          <div class="section-head">
+            <small style="color:#ffd7b7">Downloadable Profile</small>
+            <h3 style="font-size:28px">Company profile brochure</h3>
+          </div>
+          <p class="muted">
+            A premium company brochure PDF has already been prepared and can be shared with banks, clients, vendors, and corporate contacts.
+          </p>
+          <div class="pdfbox">Suggested website button: Download Company Profile PDF</div>
+          <div class="cta" style="margin-top:18px; margin-bottom:0">
+            <a class="btn btn-primary" href="#contact">Request Company Profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <small style="color:#ffd7b7">Contact</small>
+          <h3>Let’s build something meaningful</h3>
+          <p>ApexNova offers a dependable platform for engineering, technology, consultancy, industrial support, and future-focused collaboration.</p>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="card pad">
+            <div class="cta" style="margin-bottom:12px">
+              <a class="btn btn-whatsapp" href="https://wa.me/923025967154" target="_blank" rel="noreferrer">Message on WhatsApp</a>
+              <a class="btn btn-secondary" href="tel:+923025967154">Call Now</a>
+            </div>
+            <div class="details-list">
+              <div><span>Mobile / WhatsApp:</span> +92 302 5967154</div>
+              <div><span>Office Address:</span> No 521, Street 20, Sector A, Askari 14, Rawalpindi</div>
+              <div><span>FBR Registration No:</span> 1729555</div>
+              <div><span>SECP Registration No:</span> 0330182</div>
+              <div><span>Company:</span> ApexNova Engineering (SMC-Private) Limited</div>
+            </div>
+          </div>
+
+          <div class="card pad">
+            <div class="section-head">
+              <small>Inquiry Form</small>
+              <h3 style="font-size:28px">Send your business inquiry</h3>
+              <p>A launch-ready contact form for clients to share requirements, scope, and contact information.</p>
+            </div>
+            <form class="form-grid" onsubmit="event.preventDefault(); alert('This is a demo form. Connect it to email, Formspree, Netlify Forms, or your backend to receive submissions.');">
+              <input type="text" placeholder="Your name" required />
+              <input type="text" placeholder="Phone / WhatsApp" required />
+              <input class="full" type="text" placeholder="Company / Organization" />
+              <input class="full" type="text" placeholder="Required service" />
+              <textarea class="full" placeholder="Briefly describe your requirement"></textarea>
+              <button class="btn btn-primary full" type="submit">Submit Inquiry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <img class="footer-logo" src="logo.png" alt="ApexNova Logo">
+      <div>© 2026 ApexNova Engineering (SMC-Private) Limited. All rights reserved.</div>
+      <div>SECP Reg. No. 0330182 | FBR Reg. No. 1729555</div>
+    </div>
+  </footer>
+</body>
+</html>
